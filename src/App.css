@@ -14,10 +14,6 @@
     transition: all .3s; }
     .app .main-btn:hover {
       background: #3250aa; }
-    .app .main-btn.disabled {
-      background-color: #eee;
-      cursor: default;
-      pointer-events: none; }
   .app input, .app button {
     outline: none; }
   .app input {

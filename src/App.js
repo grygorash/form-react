@@ -68,10 +68,39 @@ class App extends Component {
 		}
 	};
 
-	handleChangeStep = event => {
+	handleChangeStep = (event, step) => {
 		event.preventDefault();
-		if (this.state.emailValid === true) {
-			this.setState({step: this.state.step + 1});
+		if (step === 1) {
+
+			if (this.state.nameValid === undefined) {
+				this.setState({nameValid: false});
+			}
+			if (this.state.emailValid === undefined) {
+				this.setState({emailValid: false});
+			}
+			if (this.state.phoneValid === undefined) {
+				this.setState({phoneValid: false});
+			}
+			if (this.state.nameValid === true &&
+				this.state.emailValid === true &&
+				this.state.phoneValid === true) {
+				this.setState({step: this.state.step + 1});
+			}
+		} else if (step === 2) {
+			if (this.state.experienceValid === undefined) {
+				this.setState({experienceValid: false});
+			}
+			if (this.state.employerValid === undefined) {
+				this.setState({employerValid: false});
+			}
+			if (this.state.linkValid === undefined) {
+				this.setState({linkValid: false});
+			}
+			if (this.state.experienceValid === true &&
+				this.state.employerValid === true &&
+				this.state.linkValid === true) {
+				this.setState({step: this.state.step + 1});
+			}
 		}
 	};
 
@@ -116,6 +145,7 @@ class App extends Component {
 				handleChangeStep,
 				handleValidate
 			} = this;
+
 		return (
 			<div className="app">
 				<ProgressBar step={step} />

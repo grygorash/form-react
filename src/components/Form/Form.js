@@ -59,10 +59,6 @@ const Form = props => {
 						Phone must have more than 5 numerals
 					</p>
 				</div>
-				<button className={`main-btn ${!nameValid || !emailValid || !phoneValid ? 'disabled' : ''}`}
-				        onClick={event => onChangeStep(event)}>
-					Next
-				</button>
 			</div>
 
 			<div className={`form--second-step ${step === 2 ? 'active' : ''}`}>
@@ -97,11 +93,12 @@ const Form = props => {
 						Enter correct URL
 					</p>
 				</div>
-				<button className={`main-btn ${!experienceValid || !employerValid || !linkValid ? 'disabled' : ''}`}
-				        onClick={event => onChangeStep(event)}>
-					Complete application
-				</button>
 			</div>
+			<button className="main-btn"
+			        style={step === 3 ? {display: 'none'} : {display: 'block'}}
+			        onClick={event => onChangeStep(event, step)}>
+				{step === 1 ? 'Next' : step === 2 ? 'Complete application' : null}
+			</button>
 
 			<div className={`form--third-step ${step === 3 ? 'active' : ''}`}>
 				<h2>Your application is complete</h2>

@@ -22,7 +22,6 @@ const Form = props => {
 
 		onInputChange,
 		onChangeStep,
-		onValidate
 	} = props;
 
 	return (
@@ -32,8 +31,7 @@ const Form = props => {
 					<input type="text"
 					       value={name}
 					       placeholder="Name"
-					       onChange={({target}) => onInputChange(target.value, 'name')}
-					       onBlur={() => onValidate('name')} />
+					       onChange={({target}) => onInputChange(target.value, 'name')}/>
 					<p
 						className={`error ${nameValid !== undefined && !nameValid ? 'not-valid' : ''}`}>
 						Name must have more than 3 symbols
@@ -43,8 +41,7 @@ const Form = props => {
 					<input type="email"
 					       value={email}
 					       placeholder="Email"
-					       onChange={({target}) => onInputChange(target.value, 'email')}
-					       onBlur={() => onValidate('email')} />
+					       onChange={({target}) => onInputChange(target.value, 'email')}/>
 					<p className={`error ${emailValid !== undefined && !emailValid ? 'not-valid' : ''}`}>
 						Enter valid email
 					</p>
@@ -53,8 +50,7 @@ const Form = props => {
 					<input type="tel"
 					       value={phone}
 					       placeholder="Phone"
-					       onChange={({target}) => onInputChange(target.value, 'phone')}
-					       onBlur={() => onValidate('phone')} />
+					       onChange={({target}) => onInputChange(target.value, 'phone')}/>
 					<p className={`error ${phoneValid !== undefined && !phoneValid ? 'not-valid' : ''}`}>
 						Phone must have more than 5 numerals
 					</p>
@@ -67,8 +63,7 @@ const Form = props => {
 					       value={experience}
 					       min={1}
 					       placeholder="Years of experience"
-					       onChange={({target}) => onInputChange(target.value, 'experience')}
-					       onBlur={() => onValidate('experience')} />
+					       onChange={({target}) => onInputChange(target.value, 'experience')}/>
 					<p className={`error ${experienceValid !== undefined && !experienceValid ? 'not-valid' : ''}`}>
 						Experience must be at least 1 year
 					</p>
@@ -77,8 +72,7 @@ const Form = props => {
 					<input type="text"
 					       value={employer}
 					       placeholder="Previous employer"
-					       onChange={({target}) => onInputChange(target.value, 'employer')}
-					       onBlur={() => onValidate('employer')} />
+					       onChange={({target}) => onInputChange(target.value, 'employer')}/>
 					<p className={`error ${employerValid !== undefined && !employerValid ? 'not-valid' : ''}`}>
 						Employer must have more than 1 symbol
 					</p>
@@ -87,8 +81,7 @@ const Form = props => {
 					<input type="text"
 					       value={link}
 					       placeholder="Link to LinkedIn"
-					       onChange={({target}) => onInputChange(target.value, 'link')}
-					       onBlur={() => onValidate('link')} />
+					       onChange={({target}) => onInputChange(target.value, 'link')}/>
 					<p className={`error ${linkValid !== undefined && !linkValid ? 'not-valid' : ''}`}>
 						Enter correct URL
 					</p>

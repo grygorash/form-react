@@ -19,55 +19,6 @@ class App extends Component {
 		};
 	};
 
-	handleValidate = (input) => {
-		const emailValidation = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/,
-			phoneValidation = /^\d+$/,
-			linkValidation = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
-
-		if (input === 'name') {
-			if (this.state.nameValue.length >= 3) {
-				this.setState({nameValid: true});
-			} else {
-				this.setState({nameValid: false});
-			}
-		}
-		if (input === 'email') {
-			if (this.state.emailValue.match(emailValidation)) {
-				this.setState({emailValid: true});
-			} else {
-				this.setState({emailValid: false});
-			}
-		}
-		if (input === 'phone') {
-			if (this.state.phoneValue.match(phoneValidation) && this.state.phoneValue.length >= 5) {
-				this.setState({phoneValid: true});
-			} else {
-				this.setState({phoneValid: false});
-			}
-		}
-		if (input === 'experience') {
-			if (this.state.experienceValue >= 1) {
-				this.setState({experienceValid: true});
-			} else {
-				this.setState({experienceValid: false});
-			}
-		}
-		if (input === 'employer') {
-			if (this.state.employerValue.length >= 1) {
-				this.setState({employerValid: true});
-			} else {
-				this.setState({employerValid: false});
-			}
-		}
-		if (input === 'link') {
-			if (this.state.linkValue.match(linkValidation)) {
-				this.setState({linkValid: true});
-			} else {
-				this.setState({linkValid: false});
-			}
-		}
-	};
-
 	handleChangeStep = (event, step) => {
 		event.preventDefault();
 		if (step === 1) {
@@ -105,18 +56,58 @@ class App extends Component {
 	};
 
 	handleInputChange = (value, input) => {
+		const emailValidation = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/,
+			phoneValidation = /^\d+$/,
+			linkValidation = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+
 		if (input === 'name') {
-			this.setState({nameValue: value});
+			this.setState({nameValue: value}, () => {
+				if (this.state.nameValue.length >= 3) {
+					this.setState({nameValid: true});
+				} else {
+					this.setState({nameValid: false});
+				}
+			});
 		} else if (input === 'email') {
-			this.setState({emailValue: value});
+			this.setState({emailValue: value}, () => {
+				if (this.state.emailValue.match(emailValidation)) {
+					this.setState({emailValid: true});
+				} else {
+					this.setState({emailValid: false});
+				}
+			});
 		} else if (input === 'phone') {
-			this.setState({phoneValue: value});
+			this.setState({phoneValue: value}, () => {
+				if (this.state.phoneValue.match(phoneValidation) && this.state.phoneValue.length >= 5) {
+					this.setState({phoneValid: true});
+				} else {
+					this.setState({phoneValid: false});
+				}
+			});
 		} else if (input === 'experience') {
-			this.setState({experienceValue: value});
+			this.setState({experienceValue: value}, () => {
+				if (this.state.experienceValue >= 1) {
+					this.setState({experienceValid: true});
+				} else {
+					this.setState({experienceValid: false});
+				}
+			});
 		} else if (input === 'employer') {
-			this.setState({employerValue: value});
+			this.setState({employerValue: value}, () => {
+				if (this.state.employerValue.length >= 1) {
+					this.setState({employerValid: true});
+				} else {
+					this.setState({employerValid: false});
+				}
+			});
 		} else if (input === 'link') {
-			this.setState({linkValue: value});
+			this.setState({linkValue: value}, () => {
+				if (this.state.linkValue.match(linkValidation)) {
+					this.setState({linkValid: true});
+				} else {
+					this.setState({linkValid: false});
+				}
+			});
 		} else {
 			return null;
 		}
@@ -143,7 +134,6 @@ class App extends Component {
 			{
 				handleInputChange,
 				handleChangeStep,
-				handleValidate
 			} = this;
 
 		return (
@@ -162,9 +152,8 @@ class App extends Component {
 				      experienceValid={experienceValid}
 				      employerValid={employerValid}
 				      linkValid={linkValid}
-				      onValidate={handleValidate}
-				      onChangeStep={handleChangeStep}
-				      onInputChange={handleInputChange} />
+					    onChangeStep={handleChangeStep}
+					    onInputChange={handleInputChange} />
 			</div>
 		);
 	}

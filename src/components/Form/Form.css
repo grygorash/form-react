@@ -1,0 +1,33 @@
+.form {
+  text-align: center; }
+  .form--first-step, .form--second-step, .form--third-step {
+    display: none; }
+    .form--first-step.active, .form--second-step.active, .form--third-step.active {
+      display: block; }
+    .form--first-step .form-field, .form--second-step .form-field, .form--third-step .form-field {
+      position: relative; }
+      .form--first-step .form-field .error, .form--second-step .form-field .error, .form--third-step .form-field .error {
+        color: red;
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        display: none;
+        font-size: 12px; }
+        .form--first-step .form-field .error.not-valid, .form--second-step .form-field .error.not-valid, .form--third-step .form-field .error.not-valid {
+          display: block; }
+    .form--first-step input, .form--second-step input, .form--third-step input {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 20px;
+      border: none;
+      border-bottom: 2px solid #42bef5; }
+    .form--first-step p span, .form--second-step p span, .form--third-step p span {
+      font-size: 20px;
+      word-break: break-word; }
+      .form--first-step p span a, .form--second-step p span a, .form--third-step p span a {
+        color: #42bef5;
+        text-decoration: none; }
+    .form--first-step h2, .form--second-step h2, .form--third-step h2 {
+      color: #42bef5;
+      border-bottom: 2px solid #42bef5;
+      padding-bottom: 10px; }

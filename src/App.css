@@ -1,0 +1,26 @@
+.app {
+  width: 400px;
+  margin: 50px auto 0; }
+  .app .main-btn {
+    width: 220px;
+    height: 40px;
+    background: #42bef5;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 20px auto 0;
+    transition: all .3s; }
+    .app .main-btn:hover {
+      background: #3250aa; }
+    .app .main-btn.disabled {
+      background-color: #eee;
+      cursor: default;
+      pointer-events: none; }
+  .app input, .app button {
+    outline: none; }
+  .app input {
+    color: #3250aa; }
+    .app input:focus {
+      border-color: #3250aa; }

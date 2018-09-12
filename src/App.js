@@ -22,7 +22,6 @@ class App extends Component {
 	handleChangeStep = (event, step) => {
 		event.preventDefault();
 		if (step === 1) {
-
 			if (this.state.nameValid === undefined) {
 				this.setState({nameValid: false});
 			}
@@ -108,8 +107,6 @@ class App extends Component {
 					this.setState({linkValid: false});
 				}
 			});
-		} else {
-			return null;
 		}
 	};
 

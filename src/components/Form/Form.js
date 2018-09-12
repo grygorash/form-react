@@ -87,11 +87,6 @@ const Form = props => {
 					</p>
 				</div>
 			</div>
-			<button className="main-btn"
-			        style={step === 3 ? {display: 'none'} : {display: 'block'}}
-			        onClick={event => onChangeStep(event, step)}>
-				{step === 1 ? 'Next' : step === 2 ? 'Complete application' : null}
-			</button>
 
 			<div className={`form--third-step ${step === 3 ? 'active' : ''}`}>
 				<h2>Your application is complete</h2>
@@ -102,6 +97,12 @@ const Form = props => {
 				<p>Last employer: <span>{employer}</span></p>
 				<p>LinkedIn: <span><a href={link} target="_blank">{link}</a></span></p>
 			</div>
+
+			<button className="main-btn"
+			        style={step === 3 ? {display: 'none'} : {display: 'block'}}
+			        onClick={event => onChangeStep(event, step)}>
+				{step === 1 ? 'Next' : step === 2 ? 'Complete application' : null}
+			</button>
 		</form>
 	);
 };
